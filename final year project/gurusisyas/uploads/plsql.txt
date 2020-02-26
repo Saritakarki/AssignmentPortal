@@ -1,0 +1,55 @@
+ DECLARE
+bonus employees.salary%type;
+sal employees.salary%type;
+BEGIN
+SELECT salary into sal from employees where employee_id=205;
+if sal<5000 then
+   bonus := 0.1*sal;
+   dbms_output.put_line('salary less than 5000');
+   elsif sal between 5000 and 10000 then
+   bonus := 0.15*sal;
+  dbms_output.put_line('salary  between 5000 and 10000');
+  elsif sal=null then
+  bonus :=0;
+dbms_output.put_line('salary is null');
+         else 
+            bonus := 0.2*sal;
+dbms_output.put_line('salary  greater than 10000');
+end if;
+dbms_output.put_line(bonus);
+END;
+
+DECLARE
+bonus employees.salary%type;
+BEGIN
+SELECT salary*1.5  into bonus from employees where salary between 5000 and 10000 and employee_id=190;
+dbms_output.put_line(bonus);
+END;
+/
+
+DECLARE
+bonus employees.salary%type;
+BEGIN
+IF (salary<5000) THEN
+SELECT salary*0.1  into bonus  from employees ;
+dbms_ouput.put_line(bonus);
+END;\
+
+TAX FOR ALL EMPLOYEEE(Functions)
+create or replace function
+function name(parameter)
+return number
+is
+vtax
+begin
+select .15*(salary*12) into vtax from employee where employee_id=e_emp_id
+return vtax
+select cal_tax(1) 
+
+
+function
+inc_sal(emp_id,percent) 
+variable
+begin 
+update salary= salary + percent/100 where employee_id=emp_id
+excute inc_sal(1,10);
